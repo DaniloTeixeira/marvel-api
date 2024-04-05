@@ -1,0 +1,12 @@
+<form (ngSubmit)="onSubmit()">
+    <div class="flex flex-col gap-5 items-center pt-12">
+        <img class="rounded-sm" src="../../assets/images/marvel-logo.png"
+            alt="Logomarca da Marvel com fundo vermelho e letras brancas, todas em caixa alta" width="300">
+        <div class="flex gap-2">
+            <input [formControl]="control" class="w-[220px] px-2 py-1 rounded-sm" type="text"
+                placeholder="Buscar personagem">
+            <button
+                class="bg-red-600 py-1 px-3 rounded-sm text-white hover:bg-red-700 transition ease-in-out">Buscar</button>
+        </div>
+    </div>
+</form>
