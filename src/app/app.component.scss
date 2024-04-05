@@ -1,0 +1,26 @@
+.bg-img {
+  position: relative;
+  height: 100vh;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+}
+
+.bg-avengers {
+  background: linear-gradient(#000, rgba(0, 0, 0, 0.6), #000),
+    url("../assets/images/avengers-bg.jpg");
+
+  @media screen and (width < 800px) {
+    background: linear-gradient(#000, rgba(0, 0, 0, 0.6), #000),
+      url("../assets/images/avengers-mobile-bg.png");
+    background-size: cover;
+  }
+}

@@ -22,6 +22,8 @@ export class MarvelService {
       .append('apikey', apiInfo.publicKey)
       .append('hash', hash);
 
-    return this.http.get<any>(url, { params }).pipe(map((res) => res.data));
+    return this.http
+      .get<any>(url, { params })
+      .pipe(map((res) => res.data.results));
   }
 }

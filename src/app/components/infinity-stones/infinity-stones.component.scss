@@ -1,0 +1,99 @@
+:host {
+  --space-stone: rgb(0, 76, 236, 0.8);
+  --mind-stone: rgb(245, 202, 38, 0.8);
+  --soul-stone: rgb(203, 103, 63, 0.8);
+  --reality-stone: rgb(251, 4, 35, 0.8);
+  --time-stone: rgb(5, 148, 57, 0.8);
+  --power-stone: rgb(134, 38, 199, 0.8);
+  --shadow: 0px 11px 30px 1px;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+
+  to {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 500px;
+  gap: 1rem;
+}
+
+.cube {
+  width: 20px;
+  height: 20px;
+
+  animation: rotation 2s linear infinite;
+  transform-style: preserve-3d;
+}
+
+.face {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+}
+
+.face--front {
+  transform: translateZ(10px);
+}
+
+.face--right {
+  transform: rotateY(90deg) translateZ(10px);
+}
+
+.face--back {
+  transform: rotateY(180deg) translateZ(10px);
+}
+
+.face--left {
+  transform: rotateY(-90deg) translateZ(10px);
+}
+
+.face--top {
+  transform: rotateX(90deg) translateZ(10px);
+}
+
+.face--bottom {
+  transform: rotateX(-90deg) translateZ(10px);
+}
+
+.space {
+  background-color: var(--space-stone);
+  box-shadow: var(--space-stone) var(--shadow);
+}
+
+.mind {
+  background-color: var(--mind-stone);
+  box-shadow: var(--mind-stone) var(--shadow);
+}
+
+.soul {
+  background-color: var(--soul-stone);
+  box-shadow: var(--soul-stone) var(--shadow);
+}
+
+.reality {
+  background-color: var(--reality-stone);
+  box-shadow: var(--reality-stone) var(--shadow);
+}
+
+.time {
+  background-color: var(--time-stone);
+  box-shadow: var(--time-stone) var(--shadow);
+}
+
+.power {
+  background-color: var(--power-stone);
+  box-shadow: var(--power-stone) var(--shadow);
+}
