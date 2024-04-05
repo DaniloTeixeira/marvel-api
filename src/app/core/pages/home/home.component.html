@@ -4,20 +4,20 @@
             alt="Logomarca da Marvel com fundo vermelho e letras brancas, todas em caixa alta" width="300">
 
         <div class="flex gap-2 h-[40px]">
-            <input [formControl]="control" class="w-[250px] px-3 py-1 rounded-l-full" type="search"
+            <input [formControl]="control" class="w-[260px] px-3 py-1 rounded-l-full" type="search"
                 placeholder="Insira o nome do personagem">
             <button
                 class="flex items-center justify-center bg-red-600 w-[74px] py-2 px-3 rounded-r-full text-white font-[500] hover:bg-red-700 transition ease-in-out">
                 @if (loading) {
                 <mat-spinner class="mb-1" strokeWidth="3" diameter="25" />
                 } @else {
-                <span>Buscar</span>
+                <span class="mb-1">Buscar</span>
                 }
             </button>
         </div>
 
         @if (showErrorMessage) {
-        <small class="text-red-500 -mt-3 font-mono">Insira o nome do personagem que deseja buscar</small>
+        <small class="text-red-500 -mt-3 font-mono text-sm">Insira o nome do personagem que deseja buscar</small>
         }
     </div>
 </form>
