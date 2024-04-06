@@ -1,6 +1,8 @@
 import { NgOptimizedImage } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialog } from '@angular/material/dialog';
+import { DetailsModalComponent } from '../details-modal/details-modal.component';
 
 @Component({
   selector: 'app-hero-info',
@@ -8,22 +10,31 @@ import { MatCardModule } from '@angular/material/card';
   imports: [MatCardModule, NgOptimizedImage],
   templateUrl: './hero-info.component.html',
   styleUrl: './hero-info.component.scss',
-  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeroInfoComponent implements OnInit {
   @Input() heroInfo: any;
+
+  private matDialog = inject(MatDialog);
+
   src!: string;
   imageLoaded = false;
 
   ngOnInit(): void {
-    this.setSrcImage();
+    this.setImageSrc();
   }
 
-  onImageLoad(): void {
+  onOpenInfoModal(): void {
+    this.matDialog.open(DetailsModalComponent, {
+      maxWidth: '700px',
+      minWidth: '300px',
+      data: this.heroInfo,
+    });
+  }
+
+  onLoadImage(): void {
     this.imageLoaded = true;
   }
-
-  private setSrcImage(): void {
+  private setImageSrc(): void {
     this.src = `${this.heroInfo[0].thumbnail.path}.${this.heroInfo[0].thumbnail.extension}`;
   }
 }

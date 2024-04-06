@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
   private marvelService = inject(MarvelService);
 
   loading = false;
+  imageLoaded = false;
   apiResults?: any[];
   showErrorMessage = false;
   showHeroNotFoundMessage = false;
@@ -46,6 +47,10 @@ export class HomeComponent implements OnInit {
     }
 
     this.getHeroesByName(this.inputValue);
+  }
+
+  onLoadImage(): void {
+    this.imageLoaded = true;
   }
 
   private setInputValue(): void {

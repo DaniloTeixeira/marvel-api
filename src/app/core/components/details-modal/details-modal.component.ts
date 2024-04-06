@@ -16,10 +16,11 @@ import { MatIconModule } from '@angular/material/icon';
 export class DetailsModalComponent {
   private dialogRef = inject<MatDialogRef<DetailsModalComponent>>(MatDialogRef);
 
-  heroDetails: any;
+  heroInfoDetails: any;
 
-  constructor(@Inject(MAT_DIALOG_DATA) apiResults: any) {
-    this.heroDetails = apiResults;
+  constructor(@Inject(MAT_DIALOG_DATA) heroInfo: any) {
+    this.heroInfoDetails = heroInfo;
+    console.log('heroInfoDetails: ', this.heroInfoDetails);
   }
 
   onCloseModal(): void {

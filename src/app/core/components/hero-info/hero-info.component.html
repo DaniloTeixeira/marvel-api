@@ -1,10 +1,30 @@
 <div class="w-full flex justify-center py-5">
-    <mat-card class="flex column items-center p-4 max-w-11/12 md:w-[600px]">
-        <div class="max-w-10/12 md:w-[570px]">
-            <img class="rouded-md w-full h-full border border-zinc-700 rounded-md" [ngSrc]="src" width="100"
-                height="100" [alt]="heroInfo[0].name" priority>
-        </div>
-        <h1 class="text-red-600 text-3xl text-center font-semibold pt-4 pb-2">{{ heroInfo[0].name }}</h1>
-        <p class="text-zinc-200">{{ heroInfo[0].description }}</p>
-    </mat-card>
+  <mat-card class="flex column items-center p-4 w-[600px]">
+    <div>
+      <img
+        class="rouded-md w-full h-full border border-zinc-700 rounded-md"
+        [ngSrc]="src"
+        width="100"
+        height="100"
+        [alt]="heroInfo[0].name"
+        priority
+        (load)="onLoadImage()"
+      />
+    </div>
+
+    @if (imageLoaded) {
+    <h1 class="text-red-600 text-3xl text-center font-semibold pt-4 pb-2">
+      {{ heroInfo[0].name }}
+    </h1>
+
+    <p class="text-zinc-200">{{ heroInfo[0].description }}</p>
+
+    <button
+      (click)="onOpenInfoModal()"
+      class="self-start mt-2 text-red-600 hover:text-red-500 hover:border-red-500 transition ease-in-out border-b-2 border-red-600"
+    >
+      <small class="-scroll-mt-12">More info</small>
+    </button>
+    }
+  </mat-card>
 </div>
