@@ -1,15 +1,8 @@
 <div class="w-full flex justify-center py-5">
   <mat-card class="flex column items-center p-4 w-[600px]">
     <div>
-      <img
-        class="rouded-md w-full h-full border border-zinc-700 rounded-md"
-        [ngSrc]="src"
-        width="100"
-        height="100"
-        [alt]="heroInfo[0].name"
-        priority
-        (load)="onLoadImage()"
-      />
+      <img class="rouded-md w-full h-full border border-zinc-700 rounded-md" [ngSrc]="src" width="100" height="100"
+        [alt]="heroInfo[0].name" priority (load)="onLoadImage()" />
     </div>
 
     @if (imageLoaded) {
@@ -19,10 +12,8 @@
 
     <p class="text-zinc-200">{{ heroInfo[0].description }}</p>
 
-    <button
-      (click)="onOpenInfoModal()"
-      class="self-start mt-2 text-red-600 hover:text-red-500 hover:border-red-500 transition ease-in-out border-b-2 border-red-600"
-    >
+    <button (click)="onOpenInfoModal()"
+      class="self-start mt-1 text-red-500 border-red-500 hover:text-red-600 hover:border-red-600 transition ease-in-out border-b-2 ">
       <small class="-scroll-mt-12">More info</small>
     </button>
     }
