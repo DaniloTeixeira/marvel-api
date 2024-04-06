@@ -1,7 +1,10 @@
 <div class="bg-img bg-avengers">
-  <div class="p-3">
-    <router-outlet />
+  <div class="flex flex-col justify-between h-full">
+    <div class="p-3">
+      <router-outlet />
+    </div>
+    <app-footer />
   </div>
-
-  <app-loader />
 </div>
+
+<app-loader />
