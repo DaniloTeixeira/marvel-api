@@ -6,11 +6,18 @@ import {
 } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
+import { Character } from '../../models/Character';
+import { CharacterDetailsInfoComponent } from '../character-details-info';
 
 @Component({
   selector: 'app-character-details-modal',
   standalone: true,
-  imports: [MatDialogModule, MatIconModule, MatTabsModule],
+  imports: [
+    MatDialogModule,
+    MatIconModule,
+    MatTabsModule,
+    CharacterDetailsInfoComponent,
+  ],
   templateUrl: './character-details-modal.component.html',
   styleUrl: './character-details-modal.component.scss',
 })
@@ -18,11 +25,11 @@ export class CharacterDetailsModalComponent {
   private dialogRef =
     inject<MatDialogRef<CharacterDetailsModalComponent>>(MatDialogRef);
 
-  heroInfoDetails: any;
+  character: Character;
 
-  constructor(@Inject(MAT_DIALOG_DATA) heroInfo: any) {
-    this.heroInfoDetails = heroInfo;
-    console.log('heroInfoDetails: ', this.heroInfoDetails);
+  constructor(@Inject(MAT_DIALOG_DATA) characterInfo: Character) {
+    this.character = characterInfo;
+    console.log('character: ', this.character);
   }
 
   onCloseModal(): void {

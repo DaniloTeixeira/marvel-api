@@ -29,6 +29,7 @@ export class CharacterDescriptionComponent {
     this.matDialog.open(CharacterDetailsModalComponent, {
       maxWidth: '700px',
       minWidth: '350px',
+      maxHeight: '80vh',
 
       data: this.character,
     });

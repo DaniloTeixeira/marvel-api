@@ -1,0 +1,10 @@
+<table class="text-white rounded-lg m-1">
+    @for (item of character.items; track index; let index = $index) {
+    <tr>
+        <td class="p-3 font-mono text-sm">
+            <span class="font-semibold text-red-500">{{ index + 1 }}. </span>
+            <span>{{ item.name }}</span>
+        </td>
+    </tr>
+    }
+</table>

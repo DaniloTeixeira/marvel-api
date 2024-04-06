@@ -1,4 +1,8 @@
 <mat-tab-group color="warn">
-    <mat-tab label="Quadrinhos"> Content 1 </mat-tab>
-    <mat-tab label="Séries"> Content 2 </mat-tab>
+    <mat-tab class="text-2xl" label="QUADRINHOS">
+        <app-character-details-info [character]="character.comics" />
+    </mat-tab>
+    <mat-tab label="SÉRIES">
+        <app-character-details-info [character]="character.series" />
+    </mat-tab>
 </mat-tab-group>
