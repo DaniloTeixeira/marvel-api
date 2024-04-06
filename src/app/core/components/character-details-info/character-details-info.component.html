@@ -1,11 +1,13 @@
-<table class="text-white">
+<table class="text-white w-full">
 
     @for (item of character.items; track index; let index = $index) {
     <tr>
-        <td class="p-3 font-mono text-sm">
+        <td class="p-3 font-mono text-md">
             <span class="font-semibold text-red-500">{{ index + 1 }}. </span>
-            <span>{{ item.name }}</span>
+            <span>{{ item?.name || 'Nome não disponível' }}</span>
         </td>
     </tr>
+    } @empty {
+    <p class="p-3 font-mono text-md">Nenhuma informação disponível</p>
     }
 </table>
