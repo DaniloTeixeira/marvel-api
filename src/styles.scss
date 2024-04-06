@@ -18,3 +18,14 @@ body {
 .mdc-circular-progress__indeterminate-circle-graphic {
   stroke: #fff !important;
 }
+
+.mat-mdc-snack-bar-label .mdc-snackbar__label {
+  color: #fff !important;
+  background-color: #347feb !important;
+  font-weight: 500 !important;
+  text-align: center;
+}
+
+.mat-mdc-snack-bar-handset .mdc-snackbar__surface {
+  padding: 0 !important;
+}
