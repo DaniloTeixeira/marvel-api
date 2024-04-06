@@ -12,7 +12,7 @@ import { encryptString } from '../../utils/encrypt-string';
 export class MarvelService {
   private http = inject(HttpClient);
 
-  getHeroesByName(name: string): Observable<Character> {
+  getCharactersByName(name: string): Observable<Character> {
     const url = `${apiInfo.apiBaseURL}/characters`;
     const hash = encryptString(
       `${apiInfo.timestamp}${apiInfo.privateKey}${apiInfo.publicKey}`

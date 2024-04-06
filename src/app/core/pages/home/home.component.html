@@ -23,10 +23,10 @@
     </div>
 </form>
 
-@if (showHeroNotFoundMessage) {
+@if (showCharacterNotFoundMessage) {
 <h1 class="text-center text-white text-2xl font-mono font-semibold mt-20">
     Ops! <i>Stan Lee</i> não criou este personagem.
 </h1>
-} @if (showHeroInfo) {
+} @if (showCharacterInfo) {
 <app-character-description [character]="character" />
 }

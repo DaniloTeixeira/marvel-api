@@ -27,11 +27,11 @@ export class HomeComponent implements OnInit {
   imageLoaded = false;
   character?: Character;
   showErrorMessage = false;
-  showHeroNotFoundMessage = false;
+  showCharacterNotFoundMessage = false;
   inputValue: string | null = null;
   control = new FormControl<string>('');
 
-  get showHeroInfo(): boolean {
+  get showCharacterInfo(): boolean {
     return !!(this.character && !this.loading);
   }
 
@@ -40,14 +40,14 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.showHeroNotFoundMessage = false;
+    this.showCharacterNotFoundMessage = false;
 
     if (!this.inputValue) {
       this.showErrorMessage = true;
       return;
     }
 
-    this.getHeroesByName(this.inputValue);
+    this.getCharactersByName(this.inputValue);
   }
 
   onLoadImage(): void {
@@ -61,22 +61,22 @@ export class HomeComponent implements OnInit {
         if (value) {
           this.showErrorMessage = false;
         } else {
-          this.showHeroNotFoundMessage = false;
+          this.showCharacterNotFoundMessage = false;
         }
 
         this.inputValue = value;
       });
   }
 
-  private getHeroesByName(name: string): void {
+  private getCharactersByName(name: string): void {
     this.loading = true;
 
     this.marvelService
-      .getHeroesByName(name)
+      .getCharactersByName(name)
       .pipe(finalize(() => (this.loading = false)))
       .subscribe((res) => {
         if (!res) {
-          this.showHeroNotFoundMessage = true;
+          this.showCharacterNotFoundMessage = true;
         }
         console.log('Character: ', res);
         this.character = res;
