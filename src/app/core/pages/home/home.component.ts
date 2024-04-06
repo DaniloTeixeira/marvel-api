@@ -3,7 +3,8 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { finalize } from 'rxjs';
-import { HeroInfoComponent } from '../../components/hero-info';
+import { CharacterDescriptionComponent } from '../../components/character-description';
+import { Character } from '../../models/Character';
 import { MarvelService } from '../../services/marvel';
 
 @Component({
@@ -12,7 +13,7 @@ import { MarvelService } from '../../services/marvel';
   imports: [
     FormsModule,
     ReactiveFormsModule,
-    HeroInfoComponent,
+    CharacterDescriptionComponent,
     MatProgressSpinnerModule,
   ],
   templateUrl: './home.component.html',
@@ -24,14 +25,14 @@ export class HomeComponent implements OnInit {
 
   loading = false;
   imageLoaded = false;
-  apiResults?: any[];
+  character?: Character;
   showErrorMessage = false;
   showHeroNotFoundMessage = false;
   inputValue: string | null = null;
   control = new FormControl<string>('');
 
   get showHeroInfo(): boolean {
-    return !!(this.apiResults?.length && !this.loading);
+    return !!(this.character && !this.loading);
   }
 
   ngOnInit(): void {
@@ -74,11 +75,11 @@ export class HomeComponent implements OnInit {
       .getHeroesByName(name)
       .pipe(finalize(() => (this.loading = false)))
       .subscribe((res) => {
-        if (res.length === 0) {
+        if (!res) {
           this.showHeroNotFoundMessage = true;
         }
-        console.log(res);
-        this.apiResults = res;
+        console.log('Character: ', res);
+        this.character = res;
       });
   }
 }

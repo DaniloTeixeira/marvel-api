@@ -5,16 +5,18 @@ import {
   MatDialogRef,
 } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @Component({
-  selector: 'app-details-modal',
+  selector: 'app-character-details-modal',
   standalone: true,
-  imports: [MatDialogModule, MatIconModule],
-  templateUrl: './details-modal.component.html',
-  styleUrl: './details-modal.component.scss',
+  imports: [MatDialogModule, MatIconModule, MatTabsModule],
+  templateUrl: './character-details-modal.component.html',
+  styleUrl: './character-details-modal.component.scss',
 })
-export class DetailsModalComponent {
-  private dialogRef = inject<MatDialogRef<DetailsModalComponent>>(MatDialogRef);
+export class CharacterDetailsModalComponent {
+  private dialogRef =
+    inject<MatDialogRef<CharacterDetailsModalComponent>>(MatDialogRef);
 
   heroInfoDetails: any;
 
