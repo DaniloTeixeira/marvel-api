@@ -5,6 +5,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { finalize } from 'rxjs';
 import { CharacterDescriptionComponent } from '../../components/character-description';
 import { Character } from '../../models/Character';
+import { LocalStorageService } from '../../services/local-storage';
 import { MarvelService } from '../../services/marvel';
 
 @Component({
@@ -20,16 +21,17 @@ import { MarvelService } from '../../services/marvel';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
-  private destroyRef = inject(DestroyRef);
-  private marvelService = inject(MarvelService);
+  private readonly destroyRef = inject(DestroyRef);
+  private readonly marvelService = inject(MarvelService);
+  private readonly localStorageService = inject(LocalStorageService);
 
-  loading = false;
-  imageLoaded = false;
-  character?: Character;
-  showErrorMessage = false;
-  showCharacterNotFoundMessage = false;
-  inputValue: string | null = null;
-  control = new FormControl<string>('');
+  public readonly control = new FormControl<string>('');
+
+  public character?: Character;
+  public loading = false;
+  public showErrorMessage = false;
+  public inputValue: string | null = null;
+  public showCharacterNotFoundMessage = false;
 
   get showCharacterInfo(): boolean {
     return !!(this.character && !this.loading);
@@ -37,6 +39,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.setInputValue();
+    this.localStorageService.getStoredCharacters();
   }
 
   onSubmit(): void {
@@ -48,10 +51,6 @@ export class HomeComponent implements OnInit {
     }
 
     this.getCharactersByName(this.inputValue);
-  }
-
-  onLoadImage(): void {
-    this.imageLoaded = true;
   }
 
   private setInputValue(): void {
@@ -72,13 +71,12 @@ export class HomeComponent implements OnInit {
     this.loading = true;
 
     this.marvelService
-      .getCharactersByName(name)
+      .getCharacterByName(name.trim())
       .pipe(finalize(() => (this.loading = false)))
       .subscribe((res) => {
         if (!res) {
           this.showCharacterNotFoundMessage = true;
         }
-        console.log('Character: ', res);
         this.character = res;
       });
   }

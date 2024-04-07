@@ -22,14 +22,13 @@ import { CharacterDetailsInfoComponent } from '../character-details-info';
   styleUrl: './character-details-modal.component.scss',
 })
 export class CharacterDetailsModalComponent {
-  private dialogRef =
+  private readonly dialogRef =
     inject<MatDialogRef<CharacterDetailsModalComponent>>(MatDialogRef);
 
-  character: Character;
+  public character: Character;
 
   constructor(@Inject(MAT_DIALOG_DATA) characterInfo: Character) {
     this.character = characterInfo;
-    console.log('character: ', this.character);
   }
 
   onCloseModal(): void {

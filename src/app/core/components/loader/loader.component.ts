@@ -11,5 +11,5 @@ import { InfinityStonesComponent } from '../infinity-stones';
   styleUrl: './loader.component.scss',
 })
 export class LoaderComponent {
-  showLoader$ = inject(LoaderService).showLoader$;
+  public readonly showLoader$ = inject(LoaderService).showLoader$;
 }

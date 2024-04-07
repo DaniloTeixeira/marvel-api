@@ -13,7 +13,7 @@ export const httpInterceptor: HttpInterceptorFn = (req, next) => {
   return next(req).pipe(
     tap(() => {
       if (!navigator.onLine) {
-        notification.info('Atenção! Conexão com a internet interrompida');
+        notification.info('Warning! Internet connection interrupted');
       }
     }),
     finalize(() => {

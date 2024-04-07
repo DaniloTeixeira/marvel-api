@@ -1,5 +1,10 @@
 import { NgOptimizedImage } from '@angular/common';
-import { Component, Input, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  inject,
+} from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -12,18 +17,12 @@ import { CharacterDetailsModalComponent } from '../character-details-modal';
   imports: [NgOptimizedImage, MatCardModule],
   templateUrl: './character-description.component.html',
   styleUrl: './character-description.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CharacterDescriptionComponent {
   @Input() character?: Character;
 
-  private matDialog = inject(MatDialog);
-
-  src!: string;
-  imageLoaded = false;
-
-  ngOnInit(): void {
-    this.setImageSrc();
-  }
+  private readonly matDialog = inject(MatDialog);
 
   onOpenInfoModal(): void {
     this.matDialog.open(CharacterDetailsModalComponent, {
@@ -33,12 +32,5 @@ export class CharacterDescriptionComponent {
 
       data: this.character,
     });
-  }
-
-  onLoadImage(): void {
-    this.imageLoaded = true;
-  }
-  private setImageSrc(): void {
-    this.src = `${this.character?.thumbnail.path}.${this.character?.thumbnail.extension}`;
   }
 }
