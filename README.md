@@ -1,6 +1,6 @@
 # Projeto Marvel API
 
-Projeto para consumo da API da Marvel, utilizando Angular 17.
+Projeto para consumo de API da Marvel, utilizando Angular 17.
 
 ## Como faço para baixar o projeto em minha máquina?
 
