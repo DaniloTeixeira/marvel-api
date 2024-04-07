@@ -27,4 +27,4 @@ Meu perfil do LinkedIn: https://www.linkedin.com/in/danilorodriguesteixeira
 ## Contatos
 
 - Email: danilo.rt@outlook.com
-- Celular (WhatsApp): 11 96416-0074
+- Celular (WhatsApp): (11) 96416-0074
