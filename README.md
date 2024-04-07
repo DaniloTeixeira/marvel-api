@@ -1,6 +1,6 @@
 # Projeto Marvel API
 
-Projeto para consumo da API da Marvel, utilizando Angular 17.
+Projeto para consumo de API da Marvel, utilizando Angular 17.
 
 ## Como faço para baixar o projeto em minha máquina?
 
@@ -26,5 +26,5 @@ Meu perfil do LinkedIn: https://www.linkedin.com/in/danilorodriguesteixeira
 
 ## Contatos
 
-Email: danilo.rt@outlook.com
-Celular (WhatsApp): (11 96416-0074)
+- Email: danilo.rt@outlook.com
+- Celular (WhatsApp): (11) 96416-0074
