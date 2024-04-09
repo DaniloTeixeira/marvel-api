@@ -40,10 +40,12 @@ describe('HomeComponent', () => {
 
     fixture.detectChanges();
 
-    const spanElement = fixture.nativeElement.querySelector('span');
+    const searchButtonText = fixture.nativeElement.querySelector(
+      '#search-button-text'
+    );
     const spinnerElement = fixture.nativeElement.querySelector('mat-spinner');
 
-    expect(spanElement).toBeFalsy();
+    expect(searchButtonText).toBeFalsy();
     expect(spinnerElement).toBeTruthy();
   });
 
@@ -52,10 +54,12 @@ describe('HomeComponent', () => {
 
     fixture.detectChanges();
 
-    const spanElement = fixture.nativeElement.querySelector('span');
+    const searchButtonText = fixture.nativeElement.querySelector(
+      '#search-button-text'
+    );
     const spinnerElement = fixture.nativeElement.querySelector('mat-spinner');
 
-    expect(spanElement).toBeTruthy();
+    expect(searchButtonText).toBeTruthy();
     expect(spinnerElement).toBeFalsy();
   });
 
@@ -92,10 +96,10 @@ describe('HomeComponent', () => {
 
     fixture.detectChanges();
 
-    const characterNotFoundMessage = fixture.nativeElement.querySelector('h1');
+    const notFoundMsg = fixture.nativeElement.querySelector('#not-found-msg');
 
-    expect(characterNotFoundMessage.textContent).toBeTruthy();
-    expect(characterNotFoundMessage.textContent.trim()).toEqual(
+    expect(notFoundMsg.textContent).toBeTruthy();
+    expect(notFoundMsg.textContent.trim()).toEqual(
       'Oops! Stan Lee did not create this character.'
     );
   });

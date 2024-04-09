@@ -15,7 +15,7 @@
                 @if (loading) {
                 <mat-spinner strokeWidth="3" diameter="25" />
                 } @else {
-                <span>Search</span>
+                <span id="search-button-text">Search</span>
                 }
             </button>
         </div>
@@ -28,9 +28,9 @@
 </form>
 
 @if (showCharacterNotFoundMessage) {
-<h1 class="text-center text-zinc-200 text-[22px] font-semibold mt-20">
+<span id="not-found-msg" class="text-center text-zinc-200 text-[22px] font-semibold mt-20">
     Oops! <i>Stan Lee</i> did not create this character.
-</h1>
+</span>
 
 } @if (showCharacterInfo) {
 <app-character-description [character]="character" />
