@@ -16,15 +16,15 @@
             </button>
         </div>
 
-        @if (showErrorMessage) {
-        <small class="text-red-500 -mt-3 ml-2 font-mono text-md self-start">Type the character name</small>
+        @if (control.hasError('required') && submitted) {
+        <small class="empty-error-message text-red-500 -mt-3 font-mono text-[15px]">Type in the character name</small>
         }
 
     </div>
 </form>
 
 @if (showCharacterNotFoundMessage) {
-<h1 class="text-center text-white text-[22px] font-mono font-semibold mt-20">
+<h1 class="text-center text-zinc-200 text-[22px] font-mono font-semibold mt-20">
     Oops! <i>Stan Lee</i> did not create this character.
 </h1>
 

@@ -1,5 +1,5 @@
 import { Item } from './Item';
 
-export interface Comic {
+export interface Series {
   items: Item[];
 }

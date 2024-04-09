@@ -1,6 +1,7 @@
 import { NgOptimizedImage } from '@angular/common';
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   Input,
   inject,
@@ -23,6 +24,8 @@ export class CharacterDescriptionComponent {
   @Input() character?: Character;
 
   private readonly matDialog = inject(MatDialog);
+
+  public readonly changeDetectorRef = inject(ChangeDetectorRef);
 
   onOpenInfoModal(): void {
     this.matDialog.open(CharacterDetailsModalComponent, {

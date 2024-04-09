@@ -1,10 +1,10 @@
 <table class="text-white w-full">
 
-    @for (item of character.items; track index; let index = $index) {
+    @for (item of _typeInfo.items; track index; let index = $index) {
     <tr>
         <td class="p-3 font-mono text-sm">
-            <span class="font-semibold text-red-500">{{ index + 1 }}. </span>
-            <span>{{ item?.name || 'Nome não disponível' }}</span>
+            <strong class=" text-red-500">{{ index + 1 }}. </strong>
+            <span>{{ item?.name || 'No name available' }}</span>
         </td>
     </tr>
     } @empty {

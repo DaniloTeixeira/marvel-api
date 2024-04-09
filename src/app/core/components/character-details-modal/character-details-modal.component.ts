@@ -22,7 +22,7 @@ import { CharacterDetailsInfoComponent } from '../character-details-info';
   styleUrl: './character-details-modal.component.scss',
 })
 export class CharacterDetailsModalComponent {
-  private readonly dialogRef =
+  public dialogRef =
     inject<MatDialogRef<CharacterDetailsModalComponent>>(MatDialogRef);
 
   public character: Character;

@@ -1,5 +1,5 @@
 import { Comic } from './Comic';
-import { Serie } from './Serie';
+import { Series } from './Series';
 import { Thumbnail } from './Thumbnail';
 
 export interface Character {
@@ -8,5 +8,5 @@ export interface Character {
   description: string;
   thumbnail: Thumbnail;
   comics: Comic;
-  series: Serie;
+  series: Series;
 }

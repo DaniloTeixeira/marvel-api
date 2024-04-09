@@ -12,15 +12,17 @@ export class LocalStorageService {
   }
 
   saveCharacter(character: Character): void {
-    if (!character) {
-      return;
-    }
-
     const storedCharacters = this.getStoredCharacters();
 
-    localStorage.setItem(
-      this.KEY,
-      JSON.stringify([...storedCharacters, character])
+    const shouldAddCharacter = storedCharacters.every(
+      (c) => c.name !== character.name
     );
+
+    if (shouldAddCharacter) {
+      localStorage.setItem(
+        this.KEY,
+        JSON.stringify([...storedCharacters, character])
+      );
+    }
   }
 }

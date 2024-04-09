@@ -1,6 +1,11 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Comic } from '../../models/Comic';
-import { Serie } from '../../models/Serie';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Input,
+  inject,
+} from '@angular/core';
+import { Character } from '../../models/Character';
 
 @Component({
   selector: 'app-character-details-info',
@@ -11,5 +16,15 @@ import { Serie } from '../../models/Serie';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CharacterDetailsInfoComponent {
-  @Input() character!: Comic | Serie;
+  @Input() character!: Character;
+  @Input() typeInfo!: 'comics' | 'series';
+
+  public readonly changeDetectorRef = inject(ChangeDetectorRef);
+
+  get _typeInfo() {
+    if (this.typeInfo === 'series') {
+      return this.character.series;
+    }
+    return this.character.comics;
+  }
 }
