@@ -3,6 +3,10 @@
         <img class="rounded-sm" src="../../assets/images/marvel-logo.png"
             alt="Marvel logo with red background and white letters, all in capitals" width="300" />
 
+        <h1 class="text-red-500 text-[17px] md:text-xl font-semibold mt-2 -mb-2 mx-1">
+            Search For Your Favorite Character
+        </h1>
+
         <div class="flex justify-center gap-1 px-1 h-[40px] w-full">
             <input [formControl]="control" class="w-[510px] px-3 py-1 rounded-l-full" type="search"
                 placeholder="Character name" />
@@ -17,14 +21,14 @@
         </div>
 
         @if (control.hasError('required') && submitted) {
-        <small class="empty-error-message text-red-500 -mt-3 font-mono text-[15px]">Type in the character name</small>
+        <small class="empty-error-message text-red-500 -mt-3 text-[15px]">Type in the character name</small>
         }
 
     </div>
 </form>
 
 @if (showCharacterNotFoundMessage) {
-<h1 class="text-center text-zinc-200 text-[22px] font-mono font-semibold mt-20">
+<h1 class="text-center text-zinc-200 text-[22px] font-semibold mt-20">
     Oops! <i>Stan Lee</i> did not create this character.
 </h1>
 

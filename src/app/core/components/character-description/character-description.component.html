@@ -10,11 +10,11 @@
             {{ character?.name }}
         </h1>
 
-        <p class="text-zinc-200 font-mono text-md">{{ character?.description || 'No description available'}}</p>
+        <p class="text-zinc-200 text-md">{{ character?.description || 'No description available'}}</p>
 
         <button (click)="onOpenInfoModal()" class="self-start mt-1">
             <p
-                class="text-sm text-red-500 border-red-500 hover:text-red-600 hover:border-red-600 transition ease-in-out border-b-2">
+                class="text-md text-red-500 border-red-500 hover:text-red-600 hover:border-red-600 transition ease-in-out border-b-2">
                 Details
             </p>
         </button>
