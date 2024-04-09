@@ -26,7 +26,7 @@ Aplicação rodando em produção: https://marvel-api-angular-17.vercel.app/home
 
 ## Perfil LinkedIn
 
-Meu perfil do LinkedIn: https://www.linkedin.com/in/danilorodriguesteixeira
+https://www.linkedin.com/in/danilorodriguesteixeira
 
 ## Contatos
 
