@@ -16,6 +16,10 @@ Abra a pasta do projeto em um editor de código de sua preferência, e rode o co
 - TailwindCSS
 - Crypto-JS
 
+## Tecnologias utilizadas para os testes unitários
+
+Jasmine e Karma
+
 ## Deploy da aplicação (Vercel)
 
 Aplicação rodando em produção: https://marvel-api-angular-17.vercel.app/home
