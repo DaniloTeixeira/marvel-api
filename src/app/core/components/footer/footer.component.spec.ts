@@ -21,10 +21,8 @@ describe('FooterComponent', () => {
   });
 
   it('should display the correct text in the div', () => {
-    const compiled = fixture.nativeElement;
+    const spanContent = fixture.nativeElement.querySelector('span').textContent;
 
-    expect(compiled.querySelector('div').textContent).toContain(
-      'Developed by Danilo Rodrigues Teixeira'
-    );
+    expect(spanContent).toContain('Developed by Danilo Rodrigues Teixeira');
   });
 });

@@ -1,7 +1,12 @@
-<table class="text-white w-full">
+<table class="text-white w-full relative">
+    <thead>
+        <tr>
+            <th class="p-3 text-md space-x-1 text-white">Name</th>
+        </tr>
+    </thead>
 
     @for (item of _typeInfo.items; track index; let index = $index) {
-    <tr>
+    <tr id="table-row">
         <td class="p-3 text-sm">
             <strong class=" text-red-500">{{ index + 1 }}. </strong>
             <span>{{ item?.name || 'No name available' }}</span>

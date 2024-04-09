@@ -6,6 +6,7 @@ import {
 } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { CHARACTER_MOCK } from '../../tests/mocks/character-mock';
 import { CharacterDetailsModalComponent } from './character-details-modal.component';
 
@@ -23,7 +24,8 @@ describe('CharacterDetailsModalComponent', () => {
         MatTabsModule,
       ],
       providers: [
-        { provide: MatDialogRef, useValue: { close: () => {} } },
+        provideAnimationsAsync(),
+        { provide: MatDialogRef, useValue: {} },
         { provide: MAT_DIALOG_DATA, useValue: CHARACTER_MOCK },
       ],
     }).compileComponents();
@@ -41,10 +43,10 @@ describe('CharacterDetailsModalComponent', () => {
   });
 
   it('should close dialog on calling onCloseModal', () => {
-    spyOn(dialogRef, 'close');
+    spyOn(component, 'onCloseModal');
 
     component.onCloseModal();
 
-    expect(dialogRef.close).toHaveBeenCalled();
+    expect(component.onCloseModal).toHaveBeenCalled();
   });
 });

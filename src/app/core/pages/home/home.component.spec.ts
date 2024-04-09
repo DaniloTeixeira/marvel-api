@@ -10,6 +10,7 @@ import { HomeComponent } from './home.component';
 describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
+  let marvelService: MarvelService;
 
   beforeEach(async () => {
     const spy = jasmine.createSpyObj('MarvelService', ['getCharacterByName']);
@@ -22,6 +23,7 @@ describe('HomeComponent', () => {
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
     component.character = CHARACTER_MOCK;
+    marvelService = TestBed.inject(MarvelService);
     fixture.detectChanges();
   });
 
@@ -62,8 +64,6 @@ describe('HomeComponent', () => {
     expect(searchButtonText).toBeTruthy();
     expect(spinnerElement).toBeFalsy();
   });
-
-  it('should show loader when onSubmit is called', () => {});
 
   it('should display error message when character name is not typed', () => {
     component.control.setValue('');

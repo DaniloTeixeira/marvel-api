@@ -1,3 +1,8 @@
+tr > th {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-bottom: 5px solid rgba(0, 0, 0, 0.1);
+}
+
 tr:nth-child(even) {
   background-color: #2f2f2f;
 }

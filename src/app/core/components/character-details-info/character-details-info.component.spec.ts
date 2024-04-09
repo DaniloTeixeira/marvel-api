@@ -26,7 +26,7 @@ describe('CharacterDetailsInfoComponent', () => {
   it('should render details info length correctly', () => {
     component.character.comics = CHARACTER_MOCK.comics;
 
-    const tableRows = fixture.nativeElement.querySelectorAll('tr');
+    const tableRows = fixture.nativeElement.querySelectorAll('#table-row');
 
     expect(tableRows.length).toBe(component.character.comics.items.length);
   });

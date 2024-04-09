@@ -46,9 +46,15 @@ describe('CharacterDescriptionComponent', () => {
   });
 
   it('should display character description', () => {
-    const characterDescription = fixture.nativeElement.querySelector('p');
+    component.character!.description =
+      'A super hero with super strength and the power to heal';
 
-    expect(characterDescription.textContent).toContain(
+    component.changeDetectorRef.markForCheck();
+    fixture.detectChanges();
+
+    const description = fixture.nativeElement.querySelector('#description');
+
+    expect(description.textContent).toContain(
       'A super hero with super strength and the power to heal'
     );
   });
@@ -59,11 +65,9 @@ describe('CharacterDescriptionComponent', () => {
     component.changeDetectorRef.markForCheck();
     fixture.detectChanges();
 
-    const characterDescription = fixture.nativeElement.querySelector('p');
+    const description = fixture.nativeElement.querySelector('#description');
 
-    expect(characterDescription.textContent).toContain(
-      'No description available'
-    );
+    expect(description.textContent).toContain('No description available');
   });
 
   it('should call onOpenInfoModal method', () => {
