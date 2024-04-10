@@ -9,7 +9,7 @@
     <tr id="table-row">
         <td class="p-3 text-sm">
             <strong class=" text-red-500">{{ index + 1 }}. </strong>
-            <span>{{ item?.name || 'No name available' }}</span>
+            <span appSplit [strValue]="item?.name" [charToSplit]="'#'" [alternativeText]="'No name available'"></span>
         </td>
     </tr>
     } @empty {

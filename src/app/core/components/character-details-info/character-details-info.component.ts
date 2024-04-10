@@ -5,12 +5,13 @@ import {
   Input,
   inject,
 } from '@angular/core';
+import { SplitDirective } from '../../directives';
 import { Character } from '../../models/Character';
 
 @Component({
   selector: 'app-character-details-info',
   standalone: true,
-  imports: [],
+  imports: [SplitDirective],
   templateUrl: './character-details-info.component.html',
   styleUrl: './character-details-info.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
